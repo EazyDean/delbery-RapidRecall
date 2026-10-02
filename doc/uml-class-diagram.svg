@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1180" viewBox="0 0 1600 1180" role="img" aria-labelledby="title desc">
+  <title id="title">RapidRecall UML class diagram</title>
+  <desc id="desc">Class responsibilities and relationships for the RapidRecall Android application.</desc>
+  <defs>
+    <style>
+      .bg { fill:#f7fafc; }
+      .title { font:700 34px Arial,sans-serif; fill:#07111f; }
+      .subtitle { font:400 16px Arial,sans-serif; fill:#516273; }
+      .box { fill:#fff; stroke:#16324a; stroke-width:2; rx:12; }
+      .interface { fill:#eefcf8; stroke:#198f77; stroke-width:2; rx:12; }
+      .model { fill:#fff8ee; stroke:#c67826; stroke-width:2; rx:12; }
+      .head { fill:#10243b; }
+      .head-interface { fill:#167b68; }
+      .head-model { fill:#b76818; }
+      .class-name { font:700 18px Arial,sans-serif; fill:#fff; }
+      .stereo { font:italic 13px Arial,sans-serif; fill:#dce8ef; }
+      .member { font:400 14px 'Courier New',monospace; fill:#142536; }
+      .note { font:400 13px Arial,sans-serif; fill:#536474; }
+      .section { stroke:#cad5de; stroke-width:1; }
+      .line { fill:none; stroke:#334f65; stroke-width:2; marker-end:url(#arrow); }
+      .dash { fill:none; stroke:#198f77; stroke-width:2; stroke-dasharray:8 6; marker-end:url(#hollow); }
+      .label { font:600 12px Arial,sans-serif; fill:#334f65; }
+      .legend { font:400 13px Arial,sans-serif; fill:#334f65; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334f65"/>
+    </marker>
+    <marker id="hollow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M1,1 L11,6 L1,11 z" fill="#f7fafc" stroke="#198f77" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="1180"/>
+  <text class="title" x="55" y="58">delbery-RapidRecall — UML class diagram</text>
+  <text class="subtitle" x="55" y="87">Kotlin / Jetpack Compose · session-scoped MVVM design · October 2026</text>
+
+  <!-- MainActivity -->
+  <g transform="translate(55 130)">
+    <rect class="box" width="310" height="175"/>
+    <path class="head" d="M12,0 H298 Q310,0 310,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="class-name" x="155" y="34" text-anchor="middle">MainActivity</text>
+    <line class="section" x1="0" y1="55" x2="310" y2="55"/>
+    <text class="member" x="14" y="80">+ onCreate(Bundle?): Unit</text>
+    <line class="section" x1="0" y1="96" x2="310" y2="96"/>
+    <text class="note" x="14" y="120">Android entry point; creates the</text>
+    <text class="note" x="14" y="140">window and lifecycle ViewModel.</text>
+  </g>
+
+  <!-- App -->
+  <g transform="translate(475 130)">
+    <rect class="box" width="310" height="175"/>
+    <path class="head" d="M12,0 H298 Q310,0 310,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="stereo" x="155" y="20" text-anchor="middle">«composable»</text>
+    <text class="class-name" x="155" y="43" text-anchor="middle">RapidRecallApp</text>
+    <line class="section" x1="0" y1="55" x2="310" y2="55"/>
+    <text class="member" x="14" y="80">+ render(viewModel): Unit</text>
+    <line class="section" x1="0" y1="96" x2="310" y2="96"/>
+    <text class="note" x="14" y="120">Renders and routes all Compose</text>
+    <text class="note" x="14" y="140">screens from observable state.</text>
+  </g>
+
+  <!-- VM -->
+  <g transform="translate(900 112)">
+    <rect class="box" width="640" height="245"/>
+    <path class="head" d="M12,0 H628 Q640,0 640,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="class-name" x="320" y="34" text-anchor="middle">RapidRecallViewModel</text>
+    <line class="section" x1="0" y1="55" x2="640" y2="55"/>
+    <text class="member" x="14" y="79">- targetSequence: String</text>
+    <text class="member" x="330" y="79">+ screen: AppScreen {readOnly}</text>
+    <text class="member" x="14" y="101">+ phase: GamePhase {readOnly}</text>
+    <text class="member" x="330" y="101">+ attempts: List&lt;Attempt&gt; {readOnly}</text>
+    <line class="section" x1="0" y1="116" x2="640" y2="116"/>
+    <text class="member" x="14" y="141">+ beginSequence(): Unit</text>
+    <text class="member" x="330" y="141">+ updateGuess(String): Unit</text>
+    <text class="member" x="14" y="163">+ revealDigit(Int): Unit</text>
+    <text class="member" x="330" y="163">+ submitGuess(Long): Unit</text>
+    <text class="member" x="14" y="185">+ finishPlayback(): Unit</text>
+    <text class="member" x="330" y="185">+ playAgain(): Unit</text>
+    <line class="section" x1="0" y1="199" x2="640" y2="199"/>
+    <text class="note" x="14" y="222">Coordinates navigation, round state, validation, feedback, and logging.</text>
+  </g>
+
+  <!-- enums -->
+  <g transform="translate(55 390)">
+    <rect class="box" width="310" height="170"/>
+    <path class="head" d="M12,0 H298 Q310,0 310,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="stereo" x="155" y="20" text-anchor="middle">«enumeration»</text>
+    <text class="class-name" x="155" y="43" text-anchor="middle">AppScreen</text>
+    <text class="member" x="15" y="82">HOME · GAME · LOG · SUMMARY</text>
+    <line class="section" x1="0" y1="100" x2="310" y2="100"/>
+    <text class="note" x="14" y="125">Defines the valid top-level</text>
+    <text class="note" x="14" y="145">application destinations.</text>
+  </g>
+  <g transform="translate(475 390)">
+    <rect class="box" width="310" height="170"/>
+    <path class="head" d="M12,0 H298 Q310,0 310,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="stereo" x="155" y="20" text-anchor="middle">«enumeration»</text>
+    <text class="class-name" x="155" y="43" text-anchor="middle">GamePhase</text>
+    <text class="member" x="15" y="82">READY · MEMORIZE</text>
+    <text class="member" x="15" y="104">INPUT · FEEDBACK</text>
+    <line class="section" x1="0" y1="119" x2="310" y2="119"/>
+    <text class="note" x="14" y="143">Guards legal round transitions.</text>
+  </g>
+
+  <!-- repository interface and implementation -->
+  <g transform="translate(55 655)">
+    <rect class="interface" width="350" height="180"/>
+    <path class="head-interface" d="M12,0 H338 Q350,0 350,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="stereo" x="175" y="20" text-anchor="middle">«interface»</text>
+    <text class="class-name" x="175" y="43" text-anchor="middle">AttemptRepository</text>
+    <text class="member" x="14" y="82">+ add(Attempt): Unit</text>
+    <text class="member" x="14" y="105">+ all(): List&lt;Attempt&gt;</text>
+    <line class="section" x1="0" y1="120" x2="350" y2="120"/>
+    <text class="note" x="14" y="145">Storage boundary for completed</text>
+    <text class="note" x="14" y="164">attempt records.</text>
+  </g>
+  <g transform="translate(55 930)">
+    <rect class="box" width="350" height="175"/>
+    <path class="head" d="M12,0 H338 Q350,0 350,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="class-name" x="175" y="34" text-anchor="middle">SessionAttemptRepository</text>
+    <text class="member" x="14" y="82">- attempts: MutableList&lt;Attempt&gt;</text>
+    <line class="section" x1="0" y1="98" x2="350" y2="98"/>
+    <text class="note" x="14" y="123">In-memory session storage;</text>
+    <text class="note" x="14" y="143">returns defensive snapshots.</text>
+  </g>
+
+  <!-- generator -->
+  <g transform="translate(475 655)">
+    <rect class="interface" width="350" height="180"/>
+    <path class="head-interface" d="M12,0 H338 Q350,0 350,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="stereo" x="175" y="20" text-anchor="middle">«interface»</text>
+    <text class="class-name" x="175" y="43" text-anchor="middle">DigitSequenceGenerator</text>
+    <text class="member" x="14" y="86">+ generate(Int): String</text>
+    <line class="section" x1="0" y1="105" x2="350" y2="105"/>
+    <text class="note" x="14" y="132">Contract for a new round's</text>
+    <text class="note" x="14" y="152">target digit sequence.</text>
+  </g>
+  <g transform="translate(475 930)">
+    <rect class="box" width="350" height="175"/>
+    <path class="head" d="M12,0 H338 Q350,0 350,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="class-name" x="175" y="34" text-anchor="middle">RandomDigitSequenceGenerator</text>
+    <text class="member" x="14" y="82">- nextDigit: () → Int</text>
+    <line class="section" x1="0" y1="98" x2="350" y2="98"/>
+    <text class="note" x="14" y="123">Generates and validates a random</text>
+    <text class="note" x="14" y="143">sequence between 1 and 10 digits.</text>
+  </g>
+
+  <!-- models -->
+  <g transform="translate(900 655)">
+    <rect class="model" width="300" height="230"/>
+    <path class="head-model" d="M12,0 H288 Q300,0 300,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="class-name" x="150" y="34" text-anchor="middle">Attempt</text>
+    <text class="member" x="14" y="80">+ sequenceLength: Int</text>
+    <text class="member" x="14" y="102">+ userInput: String</text>
+    <text class="member" x="14" y="124">+ targetSequence: String</text>
+    <text class="member" x="14" y="146">+ isCorrect: Boolean</text>
+    <text class="member" x="14" y="168">+ timestampMillis: Long</text>
+    <line class="section" x1="0" y1="183" x2="300" y2="183"/>
+    <text class="note" x="14" y="207">Immutable completed-round record.</text>
+  </g>
+  <g transform="translate(1240 655)">
+    <rect class="model" width="300" height="230"/>
+    <path class="head-model" d="M12,0 H288 Q300,0 300,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="class-name" x="150" y="34" text-anchor="middle">SessionSummary</text>
+    <text class="member" x="14" y="82">+ totalAttempts: Int</text>
+    <text class="member" x="14" y="104">+ correctAttempts: Int</text>
+    <text class="member" x="14" y="126">+ accuracyFraction: Float</text>
+    <text class="member" x="14" y="148">+ accuracyPercent: Int</text>
+    <line class="section" x1="0" y1="165" x2="300" y2="165"/>
+    <text class="note" x="14" y="191">Read-only current-session</text>
+    <text class="note" x="14" y="211">statistics and accuracy.</text>
+  </g>
+
+  <!-- calculator -->
+  <g transform="translate(1060 955)">
+    <rect class="box" width="360" height="150"/>
+    <path class="head" d="M12,0 H348 Q360,0 360,12 V55 H0 V12 Q0,0 12,0"/>
+    <text class="stereo" x="180" y="20" text-anchor="middle">«object»</text>
+    <text class="class-name" x="180" y="43" text-anchor="middle">SummaryCalculator</text>
+    <text class="member" x="14" y="83">+ calculate(List&lt;Attempt&gt;)</text>
+    <text class="note" x="14" y="119">Builds a SessionSummary from logs.</text>
+  </g>
+
+  <!-- relationships -->
+  <path class="line" d="M365,217 H475"/><text class="label" x="391" y="207">creates</text>
+  <path class="line" d="M785,217 H900"/><text class="label" x="816" y="207">observes</text>
+  <path class="line" d="M1060,357 V510 H230 V560"/><text class="label" x="244" y="497">uses</text>
+  <path class="line" d="M1120,357 V520 H630 V560"/><text class="label" x="645" y="512">uses</text>
+  <path class="line" d="M1020,357 V620 H230 V655"/><text class="label" x="245" y="610">depends on</text>
+  <path class="line" d="M1190,357 V600 H650 V655"/><text class="label" x="666" y="591">depends on</text>
+  <path class="line" d="M1320,357 V620 H1050 V655"/><text class="label" x="1065" y="610">creates</text>
+  <path class="line" d="M1400,357 V655"/><text class="label" x="1410" y="520">exposes</text>
+  <path class="dash" d="M230,930 V835"/><text class="label" x="242" y="891">implements</text>
+  <path class="dash" d="M650,930 V835"/><text class="label" x="662" y="891">implements</text>
+  <path class="line" d="M405,745 H900"/><text class="label" x="624" y="735">stores 0..*</text>
+  <path class="line" d="M1240,955 V885"/><text class="label" x="1250" y="926">produces</text>
+  <path class="line" d="M1060,1030 H900 V885"/><text class="label" x="920" y="1020">reads</text>
+
+  <!-- legend -->
+  <line x1="55" y1="1145" x2="105" y2="1145" class="line"/><text class="legend" x="120" y="1150">uses / owns</text>
+  <line x1="260" y1="1145" x2="310" y2="1145" class="dash"/><text class="legend" x="325" y="1150">implements interface</text>
+  <rect x="535" y="1132" width="20" height="20" class="model"/><text class="legend" x="568" y="1148">immutable model</text>
+</svg>

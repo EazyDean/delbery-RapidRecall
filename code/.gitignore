@@ -1,0 +1,14 @@
+.gradle/
+local.properties
+captures/
+.idea/workspace.xml
+
+# Ignore generated build contents except the assignment's required debug APK.
+/app/build/*
+!/app/build/outputs/
+/app/build/outputs/*
+!/app/build/outputs/apk/
+/app/build/outputs/apk/*
+!/app/build/outputs/apk/debug/
+/app/build/outputs/apk/debug/*
+!/app/build/outputs/apk/debug/app-debug.apk

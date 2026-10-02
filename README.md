@@ -1,4 +1,34 @@
-### Assignment: RapidRecall - A Quick Memory Game App
+# delbery-RapidRecall
+
+Completed Android/Kotlin/Jetpack Compose memory game for the RapidRecall assignment. The app shows a
+random 1–10 digit sequence one digit at a time, accepts a numeric answer, provides a target/input
+comparison, logs timestamped attempts for the current session, and calculates total attempts,
+correct attempts, and accuracy.
+
+## Submission layout
+
+- `code/` — complete Android Studio project and Gradle wrapper
+- `code/app/build/outputs/apk/debug/app-debug.apk` — compiled debug APK
+- `doc/` — system design notes and non-lossy SVG UML class diagram
+- `video/` — silent demonstration video and its shot list
+- `LICENSE.md` — Apache License 2.0
+
+## Build and test
+
+Open `code/` in Android Studio, or run:
+
+```bash
+cd code
+./gradlew testDebugUnitTest
+./gradlew assembleDebug
+```
+
+The application ID is `ca.ualberta.delbery.rapidrecall`; the launcher name visibly distinguishes the
+CCID as **delbery • RapidRecall**. The implementation requires Android 8.0 (API 26) or later.
+
+---
+
+### Original assignment: RapidRecall - A Quick Memory Game App
 
 # **Learning Objectives:**
 
